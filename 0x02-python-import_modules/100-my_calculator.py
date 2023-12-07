@@ -2,9 +2,8 @@
 
 if __name__ == '__main__':
 
-    import sys
-    
     from calculator_1 import add, sub, mul, div
+    import sys
 
     if len(sys.argv) != 4:
         print('Usage: {:s} <a> <operator> <b>'.format(sys.argv[0]))
