@@ -5,12 +5,11 @@ def weight_average(my_list=[]):
     if not (my_list):
         return 0
 
-    average = 0
-    _weight = 0
+    _num = 0
+    _den = 0
 
-    for score, _weight in my_list:
+    for tup in (my_list):
+        _num += tup[0] * tup[1]
+        _den += tup[1]
 
-        average += score * _weight
-        _weight += _weight
-
-        return average / _weight
+    return _num /_den
