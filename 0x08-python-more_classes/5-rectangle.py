@@ -55,21 +55,21 @@ class Rectangle:
     def __str__(self):
         """Represents the rectangle with the # character."""
         if self.__width == 0 or self.__height == 0:
-            return ("")
+            return ""
 
-        rect = []
+        ret = []
         for i in range(self.__height):
-            [rect.append('#') for j in range(self.__width)]
+            [ret.append('#') for j in range(self.__width)]
             if i != self.__height - 1:
-                rect.append("\n")
-        return ("".join(rect))
+                ret.append("\n")
+        return ("".join(ret))
 
     def __repr__(self):
 
         """represent the str representation of the rectangle."""
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return (rect)
+        ret = "Rectangle(" + str(self.__width)
+        ret += ", " + str(self.__height) + ")"
+        return (ret)
 
     def __del__(self):
 
