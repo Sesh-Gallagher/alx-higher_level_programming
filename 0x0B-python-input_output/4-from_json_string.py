@@ -11,6 +11,6 @@ def from_json_string(my_str):
     Args:
         my_str: JSON string to represent
 
-    Returns: Object 
+    Returns: Object
     """
     return json.loads(my_str)
