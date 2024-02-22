@@ -1,11 +1,12 @@
 Module for 1-my_list.py
+===============================>
 
-importing the function
+Test case 0: importing the function
 >>> MyList = __import__('1-my_list').MyList
->>>
-================
 
-Test case 1: common case
+================>
+
+Test case 1: common case test
 
 >>> my_list = MyList()
 >>> my_list.append(1)
@@ -19,42 +20,39 @@ Test case 1: common case
 [1, 2, 3, 4, 5]
 >>> print(my_list)
 [1, 4, 2, 3, 5]
->>>
 
-=======================
 
-Test case 2: not - defined object
+=======================>
+
+Test case 2: not - defined object test
 
 >>> MyList = __import__('1-my_list').MyList
 >>> my_list2.print_sorted()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'my_list2' is not defined
->>>
 
-=================
+=================>
 
-Test case 3: passed_list
+Test case 3: passed_list test
 
 >>> a = [1, 9, 4]
 >>> my_list = MyList(a)
 >>> my_list.print_sorted()
 [1, 4, 9]
->>>
 
-=====================
+=====================>
 
-Test case 4: empty_list
+Test case 4: empty_list test
 
 >>> a = []
 >>> my_list = MyList(a)
 >>> my_list.print_sorted()
 []
->>>
 
-==============
+==============>
 
-Test case 5: unique_number
+Test case 5: unique_number test
 
 >>> my_list = MyList()
 >>> my_list.append(1)
@@ -62,11 +60,10 @@ Test case 5: unique_number
 [1]
 >>> print(my_list)
 [1]
->>>
 
-==============
+==============>
 
-Test case 6: same_number
+Test case 6: same_number test
 
 >>> my_list2 = MyList()
 >>> my_list2.append(1)
@@ -75,21 +72,20 @@ Test case 6: same_number
 >>> my_list2.append(1)
 >>> my_list2.print_sorted()
 [1, 1, 1, 1]
->>>
 
-===============
+===============>
 
-Test case 7: parent_object
+Test case 7: parent_object test
+
 >>> my_list = [1, 2, 3]
 >>> my_list.print_sorted()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 AttributeError: 'list' object has no attribute 'print_sorted'
->>>
 
-=================
+=================>
 
-Test case 8: negative_numbers
+Test case 8: negative_numbers test
 
 >>> MyList = __import__('1-my_list').MyList
 >>> my_list = MyList()
@@ -100,4 +96,3 @@ Test case 8: negative_numbers
 >>> my_list.append(-5)
 >>> my_list.print_sorted()
 [-5, -1, 1, 5, 51]
->>>
