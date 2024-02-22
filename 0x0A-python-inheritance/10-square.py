@@ -11,7 +11,7 @@ class Square(Rectangle):
         """Creates a instance of a class square.
 
         Args:
-            size (int): The size of 1 side of the square.
+            size (int): The size of the new square.
         """
 
         self.__size = size

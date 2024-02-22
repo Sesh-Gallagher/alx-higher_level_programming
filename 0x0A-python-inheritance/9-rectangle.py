@@ -1,20 +1,14 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle that inherits from BaseGeometry.
-based on task 8-rectangle.py"""
-
+""" A module thatDefines a class Rectangle 
+that inherits from BaseGeometry. based on task 8-rectangle.py"""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
-    """Represent a class rectangle using BaseGeometry."""
+    """empty class represents rectangle using BaseGeometry."""
 
     def __init__(self, width, height):
-        """creates a new Rectangle.
-
-        Args:
-            width (int):  width of the Rectangle.
-            height (int): height of the Rectangle.
-        """
+        """creates a new rectangle"""
 
         self.__width = width
         self.__height = height
