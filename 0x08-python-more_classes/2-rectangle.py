@@ -1,25 +1,25 @@
-#!/usr/bin/python3
-"""Defines a Rectangle class."""
+#/usr/bin/python3
+"""Defines a Rectangle class/module."""
 
 
 class Rectangle:
-    """Represent a rectangle."""
+    """Represents a rectangle class."""
 
     def __init__(self, width=0, height=0):
-        """An empty class that Initializes a new Rectangle."""
+        """An empty class that Initializes the new Rectangle."""
         self.width = width
         self.height = height
 
     @property
     def width(self):
 
-        """Get the width of the rectangle."""
+        """Gets the width of the rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
 
-        """ sets value """
+        """ sets value of rectangle """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -29,7 +29,7 @@ class Rectangle:
     @property
     def height(self):
 
-        """Get the height of the rectangle."""
+        """Gets the height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -43,12 +43,12 @@ class Rectangle:
 
     def area(self):
 
-        """Return  area of a rectangle."""
+        """Returns the  area of a rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
 
-        """Return perimeter of the rectangle."""
+        """Returns the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
