@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""Defines a Rectangle class/module."""
 
 
 class Rectangle:
-    """An empty class represent a rectangle."""
+    """An empty class represents a rectangle."""
 
     number_of_instances = 0
     print_symbol = "#"
@@ -19,7 +19,7 @@ class Rectangle:
     @property
     def width(self):
 
-        """Get width of rectangle."""
+        """Gets width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -34,7 +34,7 @@ class Rectangle:
     @property
     def height(self):
 
-        """Get height of rectangle."""
+        """Gets height of the rectangle."""
         return self.__height
 
     @height.setter
@@ -48,12 +48,12 @@ class Rectangle:
 
     def area(self):
 
-        """calculate the area of a rectangle."""
+        """Calculate the area of a rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
 
-        """calculate the perimeter of a rectangle."""
+        """Calculate the perimeter of a rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
@@ -61,7 +61,7 @@ class Rectangle:
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
 
-        """calculates rectangle with the greater area."""
+        """Calculates rectangle with the greater area."""
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
         if not isinstance(rect_2, Rectangle):
@@ -92,6 +92,6 @@ class Rectangle:
 
     def __del__(self):
 
-        """Print message for deletion of every rectangle."""
+        """Prints message for deletion of every rectangle."""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
