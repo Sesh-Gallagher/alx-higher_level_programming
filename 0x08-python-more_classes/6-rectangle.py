@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""Defines a Rectangle class/module."""
 
 
 class Rectangle:
-    """An empty class represent a rectangle."""
+    """An empty class that represents a rectangle."""
 
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
-        """Initialization of the new rectangle."""
+        """Initializes the new rectangle."""
 
         type(self).number_of_instances += 1
         self.width = width
@@ -17,7 +17,7 @@ class Rectangle:
     @property
     def width(self):
 
-        """get the width of the rectangle."""
+        """Gets the width of the rectangle."""
         return self.__width
 
     @width.setter
@@ -32,7 +32,7 @@ class Rectangle:
     @property
     def height(self):
 
-        """Get height of rectangle."""
+        """Gets height of rectangle."""
         return self.__height
 
     @height.setter
@@ -45,12 +45,12 @@ class Rectangle:
 
     def area(self):
 
-        """calculate the area of the rectangle."""
+        """Calculates the area of the rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):
 
-        """calculate the perimeter of the rectangle."""
+        """Calculates the perimeter of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return (0)
         return ((self.__width * 2) + (self.__height * 2))
@@ -70,7 +70,7 @@ class Rectangle:
 
     def __repr__(self):
 
-        """the string representation of the Rectangle."""
+        """The string representation of the Rectangle."""
         ret = "Rectangle(" + str(self.__width)
         ret += ", " + str(self.__height) + ")"
         return (ret)
