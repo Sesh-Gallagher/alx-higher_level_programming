@@ -1,6 +1,8 @@
 #!/usr/bin/python3
-""" Represents a locked class """
+""" Represents a lockedClass module """
 
 class LockedClass:
-    
-   __slots__ = ["first_name"]
+
+    """ Prevents user from instantiating new LockedClass attr"""
+
+    __slots__ = ["first_name"]
