@@ -1,4 +1,4 @@
---Lists all shows without the comendy genre in the database hbtn_0d_tvshows.
+-- Lists all shows without the comendy genre in the database hbtn_0d_tvshows.
 -- Records are order by ascending order.
 SELECT DISTINCT `title`
   FROM `tv_shows` AS t
