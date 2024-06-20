@@ -8,22 +8,18 @@ If c is undefined, use the character X
 
 */
 
-const PrevSquare =  require('./5-square');
+const OldSquare =  require('./5-square');
 
-class Square extends PrevSquare {
-	charPrint (c) {
-		const myChar =  c === undefined ? 'X' : c;
-		for (let a = 0; a < this.height; a++) {
-			let myVar = '';
-			let b = 0;
-			while (b < this.width) {
-				myVar += myChar;
-				b++;
-			}
+odule.exports = class Square extends OldSquare {
+  constructor (size) {
+    super(size, size);
+  }
 
-			console.log(myVar);
-		}
-	}
-}
+  double () {
+    super.double();
+  }
 
-module.exports = Square;
+  charPrint (c = 'X') {
+    super.print(c);
+  }
+};
