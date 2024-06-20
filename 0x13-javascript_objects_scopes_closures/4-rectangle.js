@@ -13,37 +13,35 @@ Create an instance method called rotate() that exchanges the width and the heigh
 Create an instance method called double() that multiples the width and the heightof the rectangle by 2
 
 */
-class Rectangle {
-	constructor(w, h) {
-	if (typeof w === 'number' && w > 0 && typeof h === 'number' && h > 0) {
-		this.width = w;
-		this.height = h;
-	}
-}
 
-print () {
-	for (let a = 0; a < this.height; a++) {
-		let myVar = '';
-		let b = 0;
-		while (b < this.width) {
-			myVar += 'X';
-			b++;
-		}
+module.exports = class Rectangle {
+  constructor (width, height) {
+    if (typeof width === 'number' && typeof height === 'number' && width > 0 && height > 0) {
+      this.width = width;
+      this.height = height;
+    }
+  }
 
-		console.log(myVar);
-	}
-}
-rotate () {
-	let temp = 0;
-	temp = this.width;
-	this.width = this.height;
-	this.height = temp;
-}
+  print (char = 'X') {
+    for (let a = 0; a < this.height; ++a) {
+      let b = 0;
 
-double () {
-	this.width *= 2;
-	this.height *= 2;
-}
-}
+      for (; b < this.width; ++b) {
+        process.stdout.write(char);
+      }
 
-module.exports = Rectangle;
+      if (b === this.width) {
+        console.log('');
+      }
+    }
+  }
+
+  rotate () {
+    [this.width, this.height] = [this.height, this.width];
+  }
+
+  double () {
+    this.width *= 2;
+    this.height *= 2;
+  }
+};
