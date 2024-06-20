@@ -9,9 +9,13 @@ The constructor of Rectangle must be called (by using super())
 */
 
 const Rectangle = require('./4-rectangle');
-class Square extends Rectangle {
-constructor (size) {
-super(size, size);
-}
-}
-module.exports = square; 
+
+module.exports = class Square extends Rectangle {
+  constructor (size) {
+    super(size, size);
+  }
+
+  double () {
+    super.double();
+  }
+};
