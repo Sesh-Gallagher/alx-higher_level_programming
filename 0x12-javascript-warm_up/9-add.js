@@ -9,8 +9,8 @@ You must use console.log(...) to print all output
 You are not allowed to use var
 */
 
-const a = process.argv[2];
-const b = process.argv[3];
+const i = process.argv[2];
+const j = process.argv[3];
 
 function add (i, j) {
   return (i + j);
