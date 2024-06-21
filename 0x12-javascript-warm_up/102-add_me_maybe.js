@@ -8,5 +8,6 @@ You are not allowed to use var
 */
 
 exports.addMeMaybe = function (number, theFunction) {
-  theFunction(++number);
+  ++number;
+  theFunction(number);
 };
