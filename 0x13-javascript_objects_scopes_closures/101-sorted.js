@@ -10,15 +10,13 @@ Print the new dictionary at the end
 
 */
 const dict = require('./101-data.js').dict;
-
 const newDict = {};
 
-object.getOwnPropertyNames(dict).forEach(occurences => {
-	if (newDict[dict[occurences]] === undefined) {
-		newDict[dict[occurences]] = [occurences];
-	} else {
-	newDict[dict[occurences]].push(occurences);
-	}
+Object.keys(dict).map(function (key) {
+  if (!Array.isArray(newDict[dict[key]])) {
+    newDict[dict[key]] = [];
+  }
+  newDict[dict[key]].push(key);
 });
 
 console.log(newDict);
