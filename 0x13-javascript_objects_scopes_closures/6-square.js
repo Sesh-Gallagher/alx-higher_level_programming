@@ -10,7 +10,7 @@ If c is undefined, use the character X
 
 const OldSquare =  require('./5-square');
 
-odule.exports = class Square extends OldSquare {
+module.exports = class Square extends OldSquare {
   constructor (size) {
     super(size, size);
   }
