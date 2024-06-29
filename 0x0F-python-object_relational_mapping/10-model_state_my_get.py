@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Module that prints the State object with the name passed as argument from the database
-"""
+"""Module that prints the State object with the name
+    passed as argument from the database"""
 
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
-import sys
 from model_state import Base, State
+import sys
 
 
 if __name__ == "__main__":
