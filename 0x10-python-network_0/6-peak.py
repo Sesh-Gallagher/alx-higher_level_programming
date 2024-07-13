@@ -7,23 +7,6 @@ def find_peak(list_of_integers):
         list_of_integers(int): list of integers to find peak of
     Returns: peak of list_of_integers or None"""
 
-    if list_of_integers == []:
-        return None
-
-    size = len(list_of_integers)
-    if size == 0:
-        return (None)
-    elif size == 1:
-        return (list_of_integers[0])
-    elif size == 1:
-        return max(list_of_integers)
-
-    mid = int(size/2)
-    peak = list_of_integers[mid]
-    mylist = list_of_integers
-    if peak > mylist[mid - 1] and peak > mylist[mid + 1]:
-        return peak
-    elif peak < mylist[mid - 1]:
-        return find_peak(mylist[:mid])
-    else:
-        return find_peak(mylist[mid + 1:])
+    if list_of_integers:
+        list_of_integers.sort(reverse=True)
+        return list_of_integers[0]
