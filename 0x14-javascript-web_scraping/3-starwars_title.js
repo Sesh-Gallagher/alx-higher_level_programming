@@ -1,14 +1,17 @@
 #!/usr/bin/node
 //script that prints the title of a Star Wars movie
- 
-const request = require('request');
-const url = 'https://swapi-api.alx-tools.com/api/films/' + process.argv[2];
 
-request.get(url, (error, response, body) => {
-  if (error) {
-    console.log(error);
+const request = require('request');
+const episodeNum = process.argv[2];
+const API_URL = 'https://swapi-api.hbtn.io/api/films/';
+
+request(API_URL + episodeNum, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const responseJSON = JSON.parse(body);
+    console.log(responseJSON.title);
   } else {
-    const content = JSON.parse(body);
-    console.log(content.title);
+    console.log('Error code: ' + response.statusCode);
   }
 });
