@@ -5,36 +5,55 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """Module that represents a rectangle."""
+    """Module defines properties of Rectangle.
+
+     Attributes:
+        width (int): width of rectangle.
+        height (int): height of rectangle.
+        x (int): x.
+        y (int): y."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Module that Initializes a new Rectangle.
+        """Module that creates new instances of rectangle.
 
         Args:
-            width (int): The width of the new Rectangle.
-            height (int): The height of the new Rectangle.
-            x (int): The x coordinate of the new Rectangle.
-            y (int): The y coordinate of the new Rectangle.
-            id (int): The identity of the new Rectangle.
-        Raises:
-            TypeError: If either of width or height is not an int.
-            ValueError: If either of width or height <= 0.
-            TypeError: If either of x or y is not an int.
-            ValueError: If either of x or y < 0."""
+            width (int): width of rectangle.
+            height (int): height of rectangle.
+            x (int, optional): x. Defaults to 0.
+            y (int, optional): y. Defaults to 0.
+            id (int, optional): Identity number of rectangle.
+        Defaults to None."""
         self.width = width
         self.height = height
         self.x = x
         self.y = y
         super().__init__(id)
 
+    def __str__(self):
+        """Module that prints rectangle"""
+        return ("[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}".
+                format(self.id, self.__x, self.__y, self.__width,
+                       self.__height))
+
     @property
     def width(self):
-        """Module to set/get the width of the Rectangle."""
+        """Represents Width retriever.
+
+        Returns:
+            int: width of rectangle."""
         return self.__width
 
     @width.setter
     def width(self, value):
-        if type(value) != int:
+        """Represents the property setter for width of rectangle.
+
+        Args:
+            value (int): width of rectangle.
+
+        Raises:
+            TypeError: if width is not an integer.
+            ValueError: if width is less than or equal to zero."""
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -42,12 +61,23 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Module to set/get the height of the Rectangle."""
+        """Represents the height retriever.
+
+        Returns:
+            int: height of rectangle."""
         return self.__height
 
     @height.setter
     def height(self, value):
-        if type(value) != int:
+        """Represents property setter for height of rectangle.
+
+        Args:
+            value (int): height of rectangle.
+
+        Raises:
+            TypeError: if height is not an integer.
+            ValueError: if height is less than or equal to zero."""
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -55,12 +85,23 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Module to set/get the x coordinate of the Rectangle."""
+        """represents x retriever.
+
+        Returns:
+            int: x."""
         return self.__x
 
     @x.setter
     def x(self, value):
-        if type(value) != int:
+        """Represents property setter for x.
+
+        Args:
+            value (int): x.
+
+        Raises:
+            TypeError: if x is not an integer.
+            ValueError: if x is less than or equal to zero."""
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -68,92 +109,76 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Module to set/get the y coordinate of the Rectangle."""
+        """Represents y retriever.
+
+        Returns:
+            int: y."""
         return self.__y
 
     @y.setter
     def y(self, value):
-        if type(value) != int:
+        """Represents property setter for y.
+
+        Args:
+            value (int): y.
+
+        Raises:
+            TypeError: if y is not an integer.
+            ValueError: if y is less than or equal to zero."""
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
-        """Module that return the area of the Rectangle."""
-        return self.width * self.height
+        """Represents calculation of area of a rectangle.
+
+        Returns:
+            int: area."""
+        return self.__width * self.__height
 
     def display(self):
-        """Module to print the Rectangle using the `#` character."""
-        if self.width == 0 or self.height == 0:
-            print("")
-            return
-
-        [print("") for y in range(self.y)]
-        for h in range(self.height):
-            [print(" ", end="") for x in range(self.x)]
-            [print("#", end="") for w in range(self.width)]
-            print("")
+        """Module that prints in stdout
+        the Rectangle instance with the character #."""
+        if self.__y > 0:
+            for i in range(self.__y):
+                print()
+            self.__y = 0
+        for i in range(self.__height):
+            for j in range(self.__width):
+                if self.__y == j:
+                    print(" " * self.__x, end="")
+                print("#", end="")
+            print()
 
     def update(self, *args, **kwargs):
-        """Module to update the Rectangle.
+        """Module that assigns an argument to each attribute
 
         Args:
-            *args (ints): New attribute values.
-                - 1st argument represents id attribute
-                - 2nd argument represents width attribute
-                - 3rd argument represent height attribute
-                - 4th argument represents x attribute
-                - 5th argument represents y attribute
-            **kwargs (dict): New key/value pairs of attributes."""
-        if args and len(args) != 0:
-            a = 0
-            for arg in args:
-                if a == 0:
-                    if arg is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = arg
-                elif a == 1:
-                    self.width = arg
-                elif a == 2:
-                    self.height = arg
-                elif a == 3:
-                    self.x = arg
-                elif a == 4:
-                    self.y = arg
-                a += 1
+            *args (tuple): arguments.
+            **kwargs (dict): double pointer to a dictionary."""
 
-        elif kwargs and len(kwargs) != 0:
-            for k, v in kwargs.items():
-                if k == "id":
-                    if v is None:
-                        self.__init__(self.width, self.height, self.x, self.y)
-                    else:
-                        self.id = v
-                elif k == "width":
-                    self.width = v
-                elif k == "height":
-                    self.height = v
-                elif k == "x":
-                    self.x = v
-                elif k == "y":
-                    self.y = v
+        # print("args {}".format(type(args)))
+        # print("kwargs {}".format(type(kwargs)))
+        if args is not None and len(args) is not 0:
+            list_atrr = ['id', 'width', 'height', 'x', 'y']
+            for i in range(len(args)):
+                setattr(self, list_atrr[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def to_dictionary(self):
-        """Module to return the dictionary
-        representation of a Rectangle."""
-        return {
-            "id": self.id,
-            "width": self.width,
-            "height": self.height,
-            "x": self.x,
-            "y": self.y
-        }
+        """Module that returns the dictionary
+        representation of a Rectangle.
 
-    def __str__(self):
-        """Module to return the print() and str()
-        representation of the Rectangle."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x, self.y,
-                                                       self.width, self.height)
+        Returns:
+            dict: rectangle."""
+        dict = {}
+        dict["id"] = self.id
+        dict["width"] = self.width
+        dict["height"] = self.height
+        dict["x"] = self.x
+        dict["y"] = self.y
+        return (dict)
